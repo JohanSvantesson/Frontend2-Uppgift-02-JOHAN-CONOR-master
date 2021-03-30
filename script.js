@@ -48,6 +48,7 @@ function reset() {
         returnCardsAnimation();
     }
     deck = JSON.parse(localStorage.getItem("deck"));
+    console.log(deck);
     shuffle(deck);
     playerHand = [];
     dealerHand = [];
@@ -190,7 +191,7 @@ function startGame(){
     $("#player-card-2").flip({
         trigger: "manual"});
     
- 
+
     $("#player-games-won").text(playerGamesWon);
     $("#dealer-games-won").text(dealerGamesWon);
     
@@ -332,7 +333,7 @@ function dealerDraw() {
         if (i == 4) j = 0;
 
         setTimeout(function() {
-          
+        
             let card = deck.pop();
             dealerHand.push(card);
             dealerCardsDealt += 1;
@@ -410,8 +411,8 @@ function dealerDraw() {
                 checkResultDuringDraw();
                 return;
             }
-          
-          if (--i) dealerDrawLoop(i);
+        
+        if (--i) dealerDrawLoop(i);
         }, j)
     })(4);   
 }
@@ -622,4 +623,4 @@ function shuffle(array) {
     }
     
     return array;
-}
+}    
